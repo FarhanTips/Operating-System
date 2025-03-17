@@ -1,0 +1,30 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<pthread.h> 
+#include<string.h>
+
+void *func(int *id);
+int t_id[2]={1,2};
+
+int main() {
+    pthread_t t[2];  
+    pthread_create(&t[0], NULL,(void*) func, &t_id[0]);
+    pthread_create(&t[1], NULL,(void*) func, &t_id[1]);
+    for (int i=0;i<2;i++) {
+        pthread_join(t[0],NULL);
+    } 
+    printf("BYE");
+    return 0;
+}
+
+void *func(int *id) {    
+    printf("Enter in Thread: %d..\n",*id);
+    for (int j=0; j<5; j++) {
+        printf("Thread %d Turn %d\n",*id,j);
+        sleep(1);
+    }
+    printf("Ending Thread %d..\n",*id);
+   
+}

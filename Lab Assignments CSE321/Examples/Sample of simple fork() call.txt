@@ -1,0 +1,23 @@
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+void main()
+{
+    pid_t pid;
+    pid = fork();
+    printf("Current pid is %d.\n",pid);
+    if (pid == 0) {
+        printf("I'm the child process. My returned pid is %d.",pid);
+    }
+    else if (pid > 0) {
+        printf("I'm the parent process. My child pid is %d.\n", pid);
+        
+    }
+    
+    else{
+        perror("error in fork");
+        
+    }
+}

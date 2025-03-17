@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdint.h>
+
+void *func_thread(void *arg);
+void *t_ret;
+int num=10;
+
+int main() {
+  pthread_t t1;
+  pthread_create(&t1, NULL, func_thread, &num);
+  pthread_join(t1,&t_ret);
+  printf("Thread returned: %s\n",(char*)t_ret);
+}
+
+void *func_thread(void *arg) {
+  printf("%d\n",*((int*)arg));
+  int* n = (int*) arg;
+  printf("%d\n",*n);
+  printf("Entered in Thread\n");
+  char *result;
+  if (*n%2==0) {
+      result=("Even");
+  }
+  else {
+      result= ("Odd");
+  }
+  char *ret_val = malloc(strlen(result)+1);
+  strcpy(ret_val,result);
+  pthread_exit(ret_val);
+}
+
+
+
+
+
+Alter-------------------------------
+
+
+
+#include <stdio.h>
+#include <pthread.h>
+#include <unistd.h>
+#include <stdint.h>
+
+void *func_thread(void *arg);
+void *t_ret;
+int num=10;
+
+int main() {
+  pthread_t t1;
+  pthread_create(&t1, NULL, func_thread, &num);
+  pthread_join(t1,&t_ret);
+  printf("Thread returned: %s\n",(char*)t_ret);
+}
+
+void *func_thread(void *arg) {
+  printf("%d\n",*((int*)arg));
+  int n = *(int*) arg;
+  printf("%dhaha\n",n);
+  printf("Entered in Thread\n");
+  char *result;
+  if (n%2==0) {
+      result=("Even");
+  }
+  else {
+      result= ("Odd");
+  }
+  char *ret_val = malloc(strlen(result)+1);
+  strcpy(ret_val,result);
+  pthread_exit(ret_val);
+}

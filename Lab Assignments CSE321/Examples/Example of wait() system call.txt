@@ -1,0 +1,22 @@
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+void main()
+{
+    int pid, status;
+    pid = fork();
+    if(pid == -1) {
+        printf("fork failed\n");
+        exit(1);
+    }
+    if(pid == 0) {
+        printf("Child here! and my returned pid is %d.\n",pid);
+    }
+    else {
+        wait(&status);    // wait(NULL)
+        printf("Well done kid! and returned status integer by child is %d.",status);
+        printf("\npid of child %d.",pid);
+    }
+}

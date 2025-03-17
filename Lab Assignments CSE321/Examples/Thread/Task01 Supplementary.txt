@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<pthread.h>
+
+void *funcThread(void *arg);
+void func1();
+
+int main() {
+    pthread_t t1;  //thread declaration  
+    pthread_create(&t1, NULL, funcThread, NULL); 
+    //func1();
+    pthread_join(t1, NULL); 
+    func1();
+    printf("BYE");
+    return 0;
+    
+}
+
+void func1() {
+    printf("Entered func1:\n");
+    for(int j=5;j<10;j++) {
+        printf("func1: %d\n",j);
+        sleep(1);  
+        
+    }  
+}
+
+void *funcThread(void *arg) {    
+    printf("Entered Thread\n");
+    for(int i=0;i<5;i++) {
+        printf("Thread: %d\n",i);
+        sleep(1);
+    }
+    
+} 
