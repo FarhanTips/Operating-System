@@ -1,0 +1,262 @@
+
+-------------------String Basic As character array----------------------
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    // Write C code here
+    char a[100];
+    char b[100]={'O','L'};
+    char c[100]="NO Loss";
+    printf("Enter a value: ");
+    scanf("%s",a);
+    printf("You Entered: %s \nThen got: %s \nFinally got: %s",a,b,c);
+    
+    
+    //Copy from one variable to another//
+    
+    char new[20]="Boss";
+    char another[30];
+    strcpy(another,new);
+    printf("\nCopied in another from new: %s",another);
+
+    return 0;
+}
+
+
+
+
+
+
+task04-----------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int num;
+    printf("Enter the length of the array: ");
+    scanf("%d", &num);
+    int var[num];
+    for (int i=0; i<num;i++) {
+        printf("Enter the value of %d index: ",i);
+        scanf("%d", &var[i]);
+    }
+    for (int i=0; i<num;i++) {
+        printf("%d\n", var[i]);
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+task05-----------------------------------
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int num;
+    printf("Enter the length of the array: ");
+    scanf("%d", &num);
+    int var[num];
+    for (int i=0; i<num;i++) {
+        printf("Enter the value of %d index: ",i);
+        scanf("%d", &var[i]);
+    }
+    for (int i=num-1; i>=0;i--) {
+        printf("%d\n", var[i]);
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+task06--------------------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int num_sec,hours,min;
+    printf("Enter seconds: ");
+    scanf("%d", &num_sec);
+    hours = num_sec/3600;
+    min = (num_sec % 3600) / 60;
+    //num_sec=num_sec%60;
+    printf("Hour = %d and Minutes = %d and Seconds = %d",hours,min,num_sec);
+
+    return 0;
+}
+
+
+
+
+
+
+
+task07--------------------------------------
+
+
+// for integer
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+
+int main() {
+    int a,b,temp;
+    printf("Enter the value of 'a': ");
+    scanf("%d",&a);
+    printf("Enter the value of 'b': ");
+    scanf("%d",&b);
+    printf("Old a is %d and old b is %d\n", a,b);
+    temp=a;
+    a=b;
+    b=temp;
+    printf("New a is %d and new b is %d", a,b);
+    return 0;
+}
+
+
+
+
+// for string
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[50], b[50], temp[50];
+    printf("Enter the first string: ");
+    scanf("%s",a);
+    printf("Enter the second string: ");
+    scanf("%s",b);
+    printf("Old a is %s and old b is %s\n", a,b);
+    strcpy(temp,a);
+    strcpy(a,b);
+    strcpy(b,temp);
+    printf("New a is %s and new b is %s", a,b);
+
+    return 0;
+}
+
+
+
+
+
+task09---------------------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[50], b[50], temp[100];
+    printf("Enter the first string: ");
+    scanf("%s",a);
+    printf("Enter the second string: ");
+    scanf("%s",b);
+    strcpy(temp,a);
+    strcat(temp,b);
+    printf("concatenated string is %s", temp);
+
+    return 0;
+}
+
+
+
+
+
+
+task10---------------------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <string.h>
+
+
+struct Students {
+    char name[50];
+    int age;
+    char address[100];
+    int id;
+    char department[80];
+};
+
+int main() {
+    struct Students student1;
+    struct Students student2;
+    
+    // student1 specification
+    printf("Enter Student's Name: ");
+    scanf("%s",student1.name);
+    printf("Enter Student's Age: ");
+    scanf("%d",&student1.age);
+    printf("Enter Student's Address: ");
+    scanf("%s",student1.address);
+    printf("Enter Student's ID: ");
+    scanf("%d",&student1.id);
+    printf("Enter Student's Department: ");
+    scanf("%s",student1.department);
+
+
+
+    // student2 specification
+    printf("Enter Student's Name: ");
+    scanf("%s",student2.name);
+    printf("Enter Student's Age: ");
+    scanf("%d",&student2.age);
+    printf("Enter Student's Address: ");
+    scanf("%s",student2.address);
+    printf("Enter Student's ID: ");
+    scanf("%d",&student2.id);
+    printf("Enter Student's Department: ");
+    scanf("%s",student2.department);
+
+    // print student1 info
+    printf("Student1's Name is %s\n",student1.name);
+    printf("Student1's Age is %d\n",student1.age);
+    printf("Student1's Address is %s\n",student1.address);
+    printf("Student1's ID is %d\n",student1.id);
+    printf("Student1's Department is %s\n",student1.department);
+
+
+    // print student2 info
+    printf("Student2's Name is %s\n",student2.name);
+    printf("Student2's Age is %d\n",student2.age);
+    printf("Student2's Address is %s\n",student2.address);
+    printf("Student2's ID is %d\n",student2.id);
+    printf("Student2's Department is %s\n",student2.department);
+    return 0;
+}

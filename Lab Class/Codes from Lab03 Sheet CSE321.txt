@@ -1,0 +1,257 @@
+
+
+
+
+task01---------------------------------------------------
+
+
+
+#include <stdio.h>
+
+int main() {
+    char ch;
+    char vowels[10] = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    int isVowel = 0;
+
+    // Ask the user to enter a character
+    printf("Enter a character: ");
+    scanf("%c", &ch);
+
+    // Check if the character is in the vowels array
+    for (int i = 0; i < 10; ++i) {
+        if (ch == vowels[i]) {
+            isVowel = 1;
+            break;
+        }
+    }
+
+    if (isVowel) {
+        printf("%c is a vowel.\n", ch);
+    } else {
+        printf("%c is a consonant.\n", ch);
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+task02----------------------------------------
+
+
+
+
+#include <stdio.h>
+
+int main() {
+    int angle1, angle2, angle3, sum;
+
+    // Ask the user to enter three angles
+    printf("Enter three angles of a triangle: ");
+    scanf("%d %d %d", &angle1, &angle2, &angle3);
+
+    // Calculate the sum of the angles
+    sum = angle1 + angle2 + angle3;
+
+    // Check if the sum of the angles is 180 degrees
+    if (sum == 180 && angle1 > 0 && angle2 > 0 && angle3 > 0) {
+        printf("The angles can form a triangle.\n");
+    } else {
+        printf("The angles cannot form a triangle.\n");
+    }
+
+  
+
+
+
+
+
+task03--------------------------------------------------
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int N, i;
+    int sum=0;
+    printf("Enter the n: ");
+    scanf("%d",&N);
+    for (i=1;i<=N;i++) {
+        if (i%2==0) {
+            sum =sum+i;
+        }
+    }
+    printf("Sum of the even numbers from 1 to %d is: %d ",N,sum);
+
+    return 0;
+}
+
+
+
+
+
+task05----------------------------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+float find_circumference(float radius) {
+    return 2*3.1416*radius;
+}
+
+float find_diameter(float radius) {
+    return 2*radius;
+}
+
+float find_area(float radius) {
+    return 3.1416*(radius*radius);
+}
+
+int main() {
+    // Write C code here
+    float r, circumference, diameter, area ;
+    printf("Enter radius of a circle: ");
+    scanf("%f",&r);
+    circumference= find_circumference(r);
+    diameter = find_diameter(r);
+    area = find_area(r);
+    printf("Circumference is %f\n", circumference);
+    printf("Diameter is %f\n", diameter);
+    printf("Area is %f\n", area);
+
+
+    return 0;
+}
+
+
+
+
+
+Swapping values in array using pointers----------------------------------
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    // Write C code here
+    int arr[4]= {100,200};
+    int *ip = arr;
+    int temp, temp2;
+    temp=*ip;
+    ip++;
+    temp2=*ip;
+    *ip=temp;
+    ip--;
+    *ip=temp2;
+    printf("%d\n",arr[0]);
+    printf("%d",arr[1]);
+
+    return 0;
+}
+
+
+
+
+
+
+task06-----------------------------------------------
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+    int temp;
+    temp=*x;
+    *x=*y;
+    *y=temp;
+}
+
+int main() {
+    // Write C code here
+    int arr[4]= {100,200};
+    swap(&arr[0],&arr[1]);
+
+    printf("%d\n",arr[0]);
+    printf("%d",arr[1]);
+
+    return 0;
+}
+
+
+
+
+
+Alter01 task06-----------------------------------------
+
+
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+void swap(int *x) {
+    int temp, temp2;
+    temp=*x;
+    x++;
+    temp2=*x;
+    *x=temp;
+    x--;
+    *x=temp2;
+}
+
+int main() {
+    // Write C code here
+    int arr[4]= {100,200};
+    swap(&arr[0]);
+
+    printf("%d\n",arr[0]);
+    printf("%d",arr[1]);
+
+    return 0;
+}
+
+
+
+
+
+
+Alter02 task06-------------------
+
+
+
+
+#include <stdio.h>
+
+void swap(int *x) {
+    int temp, temp2;
+    //printf("%d\n",*x);
+    //printf("%d\n",x[0]);
+    ////printf("%d\n",x[1]);
+    temp=*x;
+    x++;
+    temp2=*x;
+    *x=temp;
+    x--;
+    *x=temp2;
+}
+
+int main() {
+    // Write C code here
+    int arr[4]= {100,200};
+    swap(arr);
+
+    printf("%d\n",arr[0]);
+    printf("%d",arr[1]);
+
+    return 0;
+}
